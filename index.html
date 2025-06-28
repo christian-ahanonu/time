@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Nwosu - IT Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            background: linear-gradient(45deg, #2c3e50, #3498db);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 70px;
+            color: white;
+        }
+
+        .name-title h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .name-title h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05rem;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+
+        .summary-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .blue-highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .education-container, .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .education-item, .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            background: #edf7ff;
+            transform: translateX(5px);
+        }
+
+        .education-item h3, .experience-item h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .education-item .institution, .experience-item .company {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .education-item .date, .experience-item .date {
+            color: #6c757d;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .education-item ul, .experience-item ul {
+            padding-left: 20px;
+        }
+
+        .education-item li, .experience-item li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .education-item li::before, .experience-item li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #3498db;
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: #e3f2fd;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .achievement {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+
+        .achievement p {
+            font-weight: 500;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .stat-card {
+            background: linear-gradient(to bottom right, #2c3e50, #4a6491);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .stat-card .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .name-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="name-title">
+                <h1>Wisdom Nwosu</h1>
+                <h2>Data Entry Manager & IT Support Specialist</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:wisdomchinwosu@gmail.com">wisdomchinwosu@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/wisdom-nwosu" target="_blank">linkedin.com/in/wisdom-nwosu</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+2347025286814">+234 7025 286 814</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary-content">
+                <p>Experienced IT professional specializing in Data Entry Management with a strong focus on growth and process improvement. Customer service expert with expanded capabilities through IT Support, QuickBooks certification, and Python scripting.</p>
+                
+                <div class="achievement">
+                    <p>As a QuickBooks Intern, upgraded the financial reporting system by <span class="highlight">30%</span>. As a volunteer leader, increased team productivity by <span class="highlight">15%</span>.</p>
+                </div>
+                
+                <p>Skilled in CRM, Excel, networking, and remote troubleshooting with a proven track record of enhancing operational efficiency and accuracy.</p>
+            </div>
+        </section>
+
+        <section id="stats">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="number">18%</div>
+                    <div class="label">Company Growth Increase</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bug"></i>
+                    <div class="number">30%</div>
+                    <div class="label">Error Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="number">15%</div>
+                    <div class="label">Work Quality Improvement</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-handshake"></i>
+                    <div class="number">10%</div>
+                    <div class="label">Client Retention Increase</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-container">
+                <div class="education-item">
+                    <h3>Associate of Applied Science - Information Technology</h3>
+                    <div class="date">2025</div>
+                    <div class="institution"><i class="fas fa-university"></i> Ensign College</div>
+                    <div class="location">Salt Lake City, Utah, USA</div>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Certificate - Information Technology Fundamentals</h3>
+                    <div class="institution"><i class="fas fa-certificate"></i> Ensign College</div>
+                    <ul>
+                        <li>Excel Certified</li>
+                        <li>Cloud Computing</li>
+                        <li>Database Design</li>
+                        <li>Linux Fundamentals</li>
+                        <li>Server Configuration</li>
+                        <li>Cybersecurity Foundations</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Certificate - Technical Support Engineer</h3>
+                    <div class="institution"><i class="fas fa-certificate"></i> Ensign College</div>
+                    <ul>
+                        <li>Python Scripting</li>
+                        <li>PC Hardware Technician</li>
+                        <li>Cloud Server Admin</li>
+                        <li>Networking Fundamentals</li>
+                        <li>Programming Basics</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <h3>IT Support Certification</h3>
+                    <div class="date">2024</div>
+                    <div class="institution"><i class="fas fa-laptop-code"></i> Coursera</div>
+                    <div class="location">Mountain View, CA, USA</div>
+                    <ul>
+                        <li>Networking concepts, IP addressing, subnetting</li>
+                        <li>Configuring routers and DHCP servers</li>
+                        <li>Remote IT support tools</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <h3>Data Entry Manager</h3>
+                    <div class="company"><i class="fas fa-building"></i> Family Search</div>
+                    <div class="date">2022 - 2023</div>
+                    <div class="location">Abuja, Nigeria</div>
+                    <ul>
+                        <li>Increased company growth by <span class="blue-highlight">18%</span> through enhanced data entry processes</li>
+                        <li>Reduced errors by <span class="blue-highlight">30%</span> via effective coordination and quality control</li>
+                        <li>Restructured work quality by <span class="blue-highlight">15%</span> with new training programs</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Medicare Customer Agent</h3>
+                    <div class="company"><i class="fas fa-building"></i> Sarafina Marketing Solution</div>
+                    <div class="date">2024</div>
+                    <div class="location">Kingston, Jamaica</div>
+                    <ul>
+                        <li>Improved response time by <span class="blue-highlight">20%</span></li>
+                        <li>Increased client retention by <span class="blue-highlight">10%</span> over 6 months</li>
+                        <li>Managed 30+ daily inquiries with 98% first-call resolution</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Digital Market Researcher</h3>
+                    <div class="company"><i class="fas fa-building"></i> Sleep Foundation</div>
+                    <div class="date">2024</div>
+                    <div class="location">Salt Lake City, Utah, USA</div>
+                    <ul>
+                        <li>Improved website traffic by <span class="blue-highlight">15%</span> through keyword research</li>
+                        <li>Managed campaign performance metrics and ROI</li>
+                        <li>Collaborated on data-driven strategies increasing audience reach by <span class="blue-highlight">12%</span></li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>QuickBooks Online Intern</h3>
+                    <div class="company"><i class="fas fa-building"></i> Mountain Rivers Partners</div>
+                    <div class="date">2024</div>
+                    <div class="location">Orem, Utah, USA</div>
+                    <ul>
+                        <li>Set up and customized financial accounts for small businesses</li>
+                        <li>Boosted financial tracking efficiency by <span class="blue-highlight">30%</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="volunteer">
+            <h2 class="section-title">Volunteer Experience</h2>
+            <div class="experience-item">
+                <h3>District Zone Leader</h3>
+                <div class="company"><i class="fas fa-hands-helping"></i> The Church of Jesus Christ of Latter-Day Saints</div>
+                <div class="date">2020 - 2022</div>
+                <div class="location">Salt Lake City, Utah, USA</div>
+                <ul>
+                    <li>Coordinated efforts between districts leading to <span class="blue-highlight">20%</span> mission improvement</li>
+                    <li>Facilitated weekly meetings resulting in <span class="blue-highlight">15%</span> team productivity increase</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Technical & Professional Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">Python Scripting</div>
+                        <div class="skill-tag">QuickBooks</div>
+                        <div class="skill-tag">Microsoft Excel</div>
+                        <div class="skill-tag">CRM Platforms</div>
+                        <div class="skill-tag">Networking</div>
+                        <div class="skill-tag">Remote Troubleshooting</div>
+                        <div class="skill-tag">System Diagnostics</div>
+                        <div class="skill-tag">Cloud Computing</div>
+                        <div class="skill-tag">Database Design</div>
+                        <div class="skill-tag">Linux Fundamentals</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">Data Management</div>
+                        <div class="skill-tag">Process Improvement</div>
+                        <div class="skill-tag">Team Leadership</div>
+                        <div class="skill-tag">Customer Service</div>
+                        <div class="skill-tag">Problem Solving</div>
+                        <div class="skill-tag">Communication</div>
+                        <div class="skill-tag">Training & Development</div>
+                        <div class="skill-tag">Quality Control</div>
+                        <div class="skill-tag">Project Coordination</div>
+                        <div class="skill-tag">Digital Marketing</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Wisdom Nwosu | IT Professional Portfolio</p>
+        <p>Designed with passion for technology and innovation</p>
+    </footer>
+
+    <script>
+        // Simple animation for section elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
